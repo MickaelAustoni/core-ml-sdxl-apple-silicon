@@ -1,0 +1,29 @@
+# Exclure les environnements virtuels
+venv/
+__pycache__/
+
+# Exclure les fichiers sensibles
+*.env
+*.txt
+*.log
+
+# Fichiers volumineux ou modèles
+*.ckpt
+*.safetensors
+*.pth
+
+# Cache
+*.cache/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+stats.html
+
