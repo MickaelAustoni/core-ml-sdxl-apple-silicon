@@ -26,6 +26,4 @@ __pycache__/
 *.sln
 *.sw?
 stats.html
-
-/scripts/ignored-script.py
-/assets/ignored-img.png
+.ignore/
