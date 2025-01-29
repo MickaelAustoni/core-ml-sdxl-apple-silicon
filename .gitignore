@@ -1,0 +1,27 @@
+# Exclude virtual env
+__pycache__/
+/env/
+
+# Large files or models
+*.ckpt
+*.safetensors
+*.pth
+
+# Cache
+*.cache/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+stats.html
+.ignore/
+
+# Generated image
+/generated_images/
