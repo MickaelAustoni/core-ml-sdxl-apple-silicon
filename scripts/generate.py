@@ -48,7 +48,7 @@ refiner.to("mps")  # Set the device to the same Apple Silicon GPU
 
 # Configure the number of inference steps and how they are split
 n_steps = 100  # Total number of denoising steps
-high_noise_frac = 0.8  # Percentage of steps allocated to the base pipeline (80%)
+high_noise_frac = 0.3  # Percentage of steps allocated to the base pipeline (80%)
 
 # Set up a random generator with a random seed
 generator = torch.Generator("mps").manual_seed(random.randint(0, 999999999))
@@ -65,6 +65,8 @@ image = base(
     num_inference_steps=n_steps,  # Total steps for inference
     denoising_end=high_noise_frac,  # Stop at 80% of the noise schedule
     output_type="latent",  # Produce a latent output
+    height=512,
+    width=512,
 ).images
 
 # Step 2: Refine the latent image using the refiner pipeline
