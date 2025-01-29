@@ -1,9 +1,13 @@
 import torch
 import os
 import random
-from diffusers import DiffusionPipeline  # Changé pour DiffusionPipeline
+from diffusers import DiffusionPipeline
 from diffusers.utils import logging
 from datetime import datetime
+from dotenv import load_dotenv
+
+# Load env var for prompt
+load_dotenv()
 
 # Add log verbose
 logging.set_verbosity_error()
@@ -37,10 +41,10 @@ pipe.enable_attention_slicing()
 generator = torch.Generator("mps").manual_seed(random.randint(0, 999999999))
 
 # Prompt
-prompt = os.getenv("PROMPT")
+prompt = os.getenv('PROMPT')
 
 # Negative prompt
-negative_prompt = os.getenv("NEGATIVE_PROMPT")
+negative_prompt = os.getenv('NEGATIVE_PROMPT')
 
 # Image generation
 image = pipe(
