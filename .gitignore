@@ -27,3 +27,6 @@ stats.html
 /images_training/
 /images_generated/
 /.env
+
+# Build
+/.build/
