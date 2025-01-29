@@ -78,9 +78,6 @@ else:
     print("No face detected in the input image!")
     exit()
 
-# Save mask for verification
-mask.save(os.path.join(output_dir, f"{timestamp}_mask.png"))
-
 # Initialize random generator for MPS (Apple Silicon GPU)
 generator = torch.Generator("mps").manual_seed(random.randint(0, 999999999))
 
@@ -95,9 +92,9 @@ image = pipe(
     image=init_image,
     mask_image=mask,
     generator=generator,
-    num_inference_steps=100,  # More steps = better quality but slower
-    guidance_scale=8.5,      # Controls how closely to follow the prompt
-    strength=0.85,           # Controls the blend between original and generated
+    num_inference_steps=100,
+    guidance_scale=12,
+    strength=0.75,
     num_images_per_prompt=1
 ).images[0]
 
