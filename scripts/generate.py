@@ -36,7 +36,7 @@ base.to("mps")  # Set the device to Apple Silicon GPU (Metal Performance Shader)
 # Load the refiner pipeline, sharing components with the base pipeline
 refiner = DiffusionPipeline.from_pretrained(
     "stabilityai/stable-diffusion-xl-refiner-1.0",  # Refiner model
-    variant="fp16", # Explicitly set to 16-bit floating point
+    variant="fp16",  # Explicitly set to 16-bit floating point
     text_encoder_2=base.text_encoder_2,  # Share the text encoder from the base pipeline
     vae=base.vae,  # Share the Variational Autoencoder from the base pipeline
     torch_dtype=torch.float16,  # Use half-precision for memory efficiency
@@ -47,8 +47,8 @@ refiner = DiffusionPipeline.from_pretrained(
 refiner.to("mps")  # Set the device to the same Apple Silicon GPU
 
 # Configure the number of inference steps and how they are split
-n_steps = 40  # Total number of denoising steps
-high_noise_frac = 0.8  # Percentage of steps allocated to the base pipeline (80%)
+n_steps = 60  # Total number of denoising steps
+high_noise_frac = 0.7  # Percentage of steps allocated to the base pipeline (80%)
 
 # Set up a random generator with a random seed
 generator = torch.Generator("mps").manual_seed(random.randint(0, 999999999))
