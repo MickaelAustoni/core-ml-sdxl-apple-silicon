@@ -19,10 +19,10 @@ if not os.path.exists(output_dir):
 
 # Generate image name with timestamp
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-image_name = f"{timestamp}_image.png"
+image_name = f"{timestamp}_lora_image.png"
 image_path = os.path.join(output_dir, image_name)
 
-# Load pipeline
+# Load base model and LoRA weights
 pipe = DiffusionPipeline.from_pretrained(
     "stabilityai/stable-diffusion-xl-base-1.0",
     torch_dtype=torch.float32,
@@ -30,29 +30,26 @@ pipe = DiffusionPipeline.from_pretrained(
     variant="fp16"
 ).to("mps")
 
+# Load your trained LoRA weights
+pipe.load_lora_weights("lora_output/final")
+
 # Enable because has low VRAM
 pipe.enable_attention_slicing()
 
-# Create a random generator for image generation using MPS (Apple Silicon GPU)
-# - torch.Generator("mps"): initializes a random number generator for M1/M2 GPU
-# - random.randint(0, 999999999): generates a random seed number
-# - manual_seed(): sets the seed for reproducible results
-# Using the same seed will generate the same image
+# Create a random generator for image generation using MPS
 generator = torch.Generator("mps").manual_seed(random.randint(0, 999999999))
 
-# Prompt
-prompt = os.getenv('PROMPT')
-
-# Negative prompt
+# Get prompts from environment variables
+prompt = os.getenv('PROMPT_LORA')  # Use specific prompt for LoRA
 negative_prompt = os.getenv('NEGATIVE_PROMPT')
 
-# Image generation
+# Generate image
 image = pipe(
     prompt=prompt,
     negative_prompt=negative_prompt,
     generator=generator,
     num_inference_steps=100,
-    guidance_scale=12,
+    guidance_scale=8.5,
     width=1024,
     height=1024,
     num_images_per_prompt=1

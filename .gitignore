@@ -23,6 +23,7 @@ __pycache__/
 stats.html
 .ignore/
 
-# Generated image
-/generated_images/
+# Generated image and training
+/images_training/
+/images_generated/
 /.env

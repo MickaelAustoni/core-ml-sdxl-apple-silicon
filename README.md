@@ -825,11 +825,16 @@ pip install huggingface_hub
 python -m pip install python-dotenv
 ```
 
-### Install dependencies for inpainting script
+### Install dependencies for `inpainting` script
 ```bash
 brew install cmake
 pip install dlib
 python -m pip install face_recognition
+```
+
+### Install dependencies for `LoRA` script
+```bash
+pip install peft transformers accelerate
 ```
 
 ### Run script

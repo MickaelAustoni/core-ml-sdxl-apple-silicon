@@ -14,7 +14,7 @@ load_dotenv()
 logging.set_verbosity_error()
 
 # Output dir image generated
-output_dir = "generated_images"
+output_dir = "images_generated"
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 

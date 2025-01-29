@@ -36,7 +36,7 @@ pipe = StableDiffusionXLInpaintPipeline.from_pretrained(
 pipe.enable_attention_slicing()
 
 # Load and process input image for face detection
-input_path = os.path.join(os.getcwd(), os.getenv('INPUT_IMG'))
+input_path = os.path.join(os.getcwd(), os.getenv('INPUT_IMG_INPAINTING'))
 init_image = Image.open(input_path)
 init_image = init_image.resize((1024, 1024))
 
