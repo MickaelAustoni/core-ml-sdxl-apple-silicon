@@ -47,8 +47,8 @@ refiner = DiffusionPipeline.from_pretrained(
 refiner.to("mps")  # Set the device to the same Apple Silicon GPU
 
 # Configure the number of inference steps and how they are split
-n_steps = 60  # Total number of denoising steps
-high_noise_frac = 0.7  # Percentage of steps allocated to the base pipeline (80%)
+n_steps = 100  # Total number of denoising steps
+high_noise_frac = 0.8  # Percentage of steps allocated to the base pipeline (80%)
 
 # Set up a random generator with a random seed
 generator = torch.Generator("mps").manual_seed(random.randint(0, 999999999))
