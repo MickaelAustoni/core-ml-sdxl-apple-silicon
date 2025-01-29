@@ -822,6 +822,7 @@ pip install diffusers transformers accelerate
 pip install safetensors
 pip install coremltools
 pip install huggingface_hub
+pip install python-dotenv
 ```
 
 ### Run script

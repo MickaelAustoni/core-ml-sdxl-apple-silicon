@@ -37,10 +37,10 @@ pipe.enable_attention_slicing()
 generator = torch.Generator("mps").manual_seed(random.randint(0, 999999999))
 
 # Prompt
-prompt = ()
+prompt = os.getenv("PROMPT")
 
 # Negative prompt
-negative_prompt = ()
+negative_prompt = os.getenv("NEGATIVE_PROMPT")
 
 # Image generation
 image = pipe(
