@@ -5,7 +5,7 @@ from diffusers import StableDiffusionXLImg2ImgPipeline  # Changement ici
 from diffusers.utils import logging
 from datetime import datetime
 from dotenv import load_dotenv
-from PIL import Image  # Pour charger l'image de base
+from PIL import Image
 
 # Load env var for prompt
 load_dotenv()
@@ -23,7 +23,7 @@ timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 image_name = f"{timestamp}_image.png"
 image_path = os.path.join(output_dir, image_name)
 
-# Charger le pipeline img2img
+# Load pipeline img2img
 pipe = StableDiffusionXLImg2ImgPipeline.from_pretrained(
     "stabilityai/stable-diffusion-xl-base-1.0",
     torch_dtype=torch.float32,

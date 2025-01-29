@@ -825,6 +825,13 @@ pip install huggingface_hub
 python -m pip install python-dotenv
 ```
 
+### Install dependencies for inpainting script
+```bash
+brew install cmake
+pip install dlib
+python -m pip install face_recognition
+```
+
 ### Run script
 ```bash
 python scripts/generate.py

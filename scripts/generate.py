@@ -22,7 +22,7 @@ timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 image_name = f"{timestamp}_image.png"
 image_path = os.path.join(output_dir, image_name)
 
-# Pipe with opti
+# Load pipeline
 pipe = DiffusionPipeline.from_pretrained(
     "stabilityai/stable-diffusion-xl-base-1.0",
     torch_dtype=torch.float32,
