@@ -1057,7 +1057,7 @@ URL = {null}
 
 ## Local installation
 
-### Create env
+### Create env and activate
 
 ```bash
   python -m venv env
