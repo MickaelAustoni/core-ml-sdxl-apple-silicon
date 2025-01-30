@@ -47,7 +47,7 @@ refiner.to("mps")  # Set the device to the same Apple Silicon GPU
 
 # Configure the number of inference steps and how they are split
 n_steps = 100  # Total number of denoising steps
-high_noise_frac = 0.3  # Percentage of steps allocated to the base pipeline (80%)
+high_noise_frac = 0.8  # Percentage of steps allocated to the base pipeline (80%)
 
 # Set up a random generator with a random seed
 generator = torch.Generator("mps").manual_seed(987654321)
