@@ -30,3 +30,4 @@ stats.html
 
 # Build
 /.build/
+/lora_output/

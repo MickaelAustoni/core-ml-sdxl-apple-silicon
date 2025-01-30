@@ -64,8 +64,6 @@ image = base(
     num_inference_steps=n_steps,  # Total steps for inference
     denoising_end=high_noise_frac,  # Stop at 80% of the noise schedule
     output_type="latent",  # Produce a latent output
-    height=512,
-    width=512,
 ).images
 
 # Step 2: Refine the latent image using the refiner pipeline
