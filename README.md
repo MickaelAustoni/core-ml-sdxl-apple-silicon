@@ -1,8 +1,8 @@
-# Core ML Stable Diffusion
+# Core ML SDXL (Apple Silicon)
 
 Run Stable Diffusion on Apple Silicon with Core ML
 
-[\[Blog Post\]](https://machinelearning.apple.com/research/stable-diffusion-coreml-apple-silicon) [\[BibTeX\]](#bibtex)
+[\[Blog Post\]](https://machinelearning.apple.com/research/stable-diffusion-coreml-apple-silicon)
 
 This repository comprises:
 
@@ -14,8 +14,6 @@ This repository comprises:
 
 If you run into issues during installation or runtime, please refer to the [FAQ](#faq) section. Please refer to
 the [System Requirements](#system-requirements) section before getting started.
-
-<img src="assets/readme_reel.png">
 
 ## <a name="system-requirements"></a> System Requirements
 
