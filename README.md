@@ -1087,11 +1087,22 @@ URL = {null}
   python -m pip install face_recognition
 ```
 
-### Run script
+## Run script
 
+### Generate image from prompt
 ```bash
   python scripts/generate.py
-  python scripts/generate_lora.py
+```
+### Generate image with lora
+```bash
+  python scripts/generate_lora.py --lora_path "lora_output/ava/pytorch_lora_weights.safetensors"
+```
+
+### Generate image to image
+```bash
   python scripts/img2img.py
+```
+### Generate inpainting image
+```bash
   python scripts/inpainting.py
 ```

@@ -1,6 +1,7 @@
 import torch
 import os
 import random
+import argparse
 from diffusers import DiffusionPipeline
 from diffusers.utils import logging
 from datetime import datetime
@@ -37,7 +38,10 @@ device = "cuda" if torch.cuda.is_available() else "mps"
 pipeline.to(device)
 
 # 📌Load the LoRA weights
-lora_path = "lora_output/ava/pytorch_lora_weights.safetensors"
+parser = argparse.ArgumentParser(description='Generate image with LoRA weights')
+parser.add_argument('--lora_path', type=str, required=True, help='Path to the LoRA weights file')
+args = parser.parse_args()
+lora_path = args.lora_path
 
 if os.path.exists(lora_path):
     try:
