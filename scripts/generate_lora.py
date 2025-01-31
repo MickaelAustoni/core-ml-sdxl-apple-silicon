@@ -39,16 +39,11 @@ pipeline.to(device)
 # 📌Load the LoRA weights
 lora_path = "lora_output/ava/pytorch_lora_weights.safetensors"
 
-try:
-    pipeline.load_lora_weights(lora_path)
-    print(f"✅ LoRA successfully loaded from {lora_path}")
-except Exception as e:
-    print(f"⚠️ Error loading LoRA: {e}")
-
 if os.path.exists(lora_path):
     try:
-        pipeline.load_lora_weights(lora_path)
-        print(f"✅ LoRA successfully loaded from {lora_path}")
+        pipeline.load_lora_weights(lora_path, weight_name="pytorch_lora_weights.safetensors")
+        pipeline.fuse_lora()  # 🔥 Ensure the LoRA is applied to the model
+        print(f"✅ LoRA successfully loaded and fused from {lora_path}")
     except Exception as e:
         print(f"⚠️ Error loading LoRA: {e}")
 else:
@@ -58,7 +53,7 @@ else:
 generator = torch.Generator(device).manual_seed(random.randint(0, 999999999))
 
 # 🗣️Prompts
-prompt = os.getenv('PROMPT_AVA', "a photo of sks ava, ultra realistic, 8k")
+prompt = os.getenv('PROMPT_LORA', "a photo of sks ava, ultra realistic, 8k")
 negative_prompt = os.getenv('NEGATIVE_PROMPT', "blurry, low quality")
 
 # 🔥Generate the image

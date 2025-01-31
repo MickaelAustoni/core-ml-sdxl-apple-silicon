@@ -1091,7 +1091,7 @@ URL = {null}
 
 ```bash
   python scripts/generate.py
-  python scripts/generate_ava.py
+  python scripts/generate_lora.py
   python scripts/img2img.py
   python scripts/inpainting.py
 ```
