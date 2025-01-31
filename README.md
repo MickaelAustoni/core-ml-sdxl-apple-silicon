@@ -1067,19 +1067,22 @@ URL = {null}
 
 ### Install requirements
 ```bash
-  pip install -r requirements.txt
-  pip install -r requirements_sdxl.txt
+  python -m pip install -r requirements.txt
+  python -m  pip install -r requirements_sdxl.txt
 ```
 
 ### Install dependencies
 
 ```bash
-  pip install torch torchvision torchaudio
-  pip install diffusers transformers accelerate
-  pip install safetensors
-  pip install coremltools
-  pip install huggingface_hub
+  python -m pip install torch torchvision torchaudio
+  python -m pip install diffusers transformers accelerate
+  python -m pip install safetensors
+  python -m pip install coremltools
+  python -m pip install huggingface_hub
   python -m pip install python-dotenv
+  python -m pip install wandb
+  python -m pip install bitsandbytes
+  python -m pip install git+https://github.com/huggingface/diffusers
 ```
 
 ## Run script
