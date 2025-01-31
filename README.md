@@ -1062,25 +1062,15 @@ URL = {null}
   python -m venv env
 ```
 
-### Install requirements
-```bash
-pip install -r requirements.txt
-```
 ### Activate env
 ```bash
   source env/bin/activate
 ```
 
-## Requirement for generate with LoRA
-
-### Create LoRA env
-```bash
-  python -m venv lora_env
-```
-
 ### Install requirements
 ```bash
-pip install -r requirements_sdxl.txt
+  pip install -r requirements.txt
+  pip install -r requirements_sdxl.txt
 ```
 
 ### Install dependencies
