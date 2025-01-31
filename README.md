@@ -1057,10 +1057,14 @@ URL = {null}
 
 ## Local installation
 
-### Create env and activate
+### Create env
 
 ```bash
   python -m venv env
+```
+
+### activate env
+```bash
   source env/bin/activate
 ```
 
@@ -1087,4 +1091,7 @@ URL = {null}
 
 ```bash
   python scripts/generate.py
+  python scripts/generate_ava.py
+  python scripts/img2img.py
+  python scripts/inpainting.py
 ```
