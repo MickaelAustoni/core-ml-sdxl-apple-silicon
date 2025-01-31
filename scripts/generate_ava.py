@@ -6,13 +6,13 @@ from diffusers.utils import logging
 from datetime import datetime
 from dotenv import load_dotenv
 
-# Load environment variables
+# 🔋Load environment variables
 load_dotenv()
 
-# Disable verbose logging
+# 🈲Disable verbose logging
 logging.set_verbosity_error()
 
-# Create the output directory if it doesn't exist
+# 📂Create the output directory if it doesn't exist
 output_dir = "images_generated"
 os.makedirs(output_dir, exist_ok=True)
 
@@ -36,7 +36,7 @@ pipeline = DiffusionPipeline.from_pretrained(
 device = "cuda" if torch.cuda.is_available() else "mps"
 pipeline.to(device)
 
-# 📌 Load the LoRA weights
+# 📌Load the LoRA weights
 lora_path = "lora_output/ava/pytorch_lora_weights.safetensors"
 
 try:
@@ -54,14 +54,14 @@ if os.path.exists(lora_path):
 else:
     print(f"⚠️ LoRA file '{lora_path}' not found. Generating image without LoRA.")
 
-# 🔀 Generate a random seed
+# 🔀Generate a random seed
 generator = torch.Generator(device).manual_seed(random.randint(0, 999999999))
 
-# 🗣️ Prompts
+# 🗣️Prompts
 prompt = os.getenv('PROMPT_AVA', "a photo of sks ava, ultra realistic, 8k")
 negative_prompt = os.getenv('NEGATIVE_PROMPT', "blurry, low quality")
 
-# 🔥 Generate the image
+# 🔥Generate the image
 image = pipeline(
     prompt=prompt,
     negative_prompt=negative_prompt,
